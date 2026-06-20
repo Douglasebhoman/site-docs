@@ -1,0 +1,206 @@
+/* ============================================================
+   BRAND STYLESHEET — Douglas Ebhoman
+   Navy: #18222C | Gold: #A68959 | Silver: #B8C0CC
+============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* Core colour overrides */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #A68959;
+  --md-primary-fg-color--light: #C9A96E;
+  --md-primary-fg-color--dark:  #8C7248;
+  --md-accent-fg-color:         #A68959;
+  --md-default-bg-color:        #18222C;
+  --md-default-fg-color:        #E8E6E1;
+  --md-default-fg-color--light: #B8C0CC;
+  --md-default-fg-color--lighter: #8892A4;
+  --md-code-bg-color:           #1E2935;
+  --md-code-fg-color:           #E8E6E1;
+  --md-typeset-color:           #E8E6E1;
+  --md-typeset-a-color:         #A68959;
+}
+
+/* Typography */
+body,
+.md-typeset {
+  font-family: 'Lora', Georgia, serif !important;
+  color: #E8E6E1;
+}
+
+.md-typeset code,
+.md-typeset pre,
+.md-header__title,
+.md-nav__title,
+.md-nav__link,
+.md-search__input {
+  font-family: 'DM Mono', monospace !important;
+}
+
+/* Header */
+.md-header {
+  background-color: #18222C !important;
+  border-bottom: 1px solid rgba(166, 137, 89, 0.3) !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.4) !important;
+}
+
+.md-header__title {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.04em !important;
+  color: #E8E6E1 !important;
+}
+
+/* Navigation sidebar */
+.md-sidebar {
+  background-color: #18222C !important;
+}
+
+.md-nav__title {
+  color: #A68959 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  border-bottom: 1px solid rgba(166,137,89,0.25) !important;
+  padding-bottom: 8px !important;
+}
+
+.md-nav__link {
+  color: #B8C0CC !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.04em !important;
+  transition: color 0.2s ease !important;
+}
+
+.md-nav__link:hover,
+.md-nav__link--active {
+  color: #A68959 !important;
+}
+
+.md-nav__link--active {
+  font-weight: 500 !important;
+}
+
+/* Content area */
+.md-content {
+  background-color: #18222C !important;
+}
+
+.md-main {
+  background-color: #1B2632 !important;
+}
+
+/* Headings */
+.md-typeset h1 {
+  font-family: 'Lora', serif !important;
+  font-weight: 500 !important;
+  color: #E8E6E1 !important;
+  letter-spacing: -0.02em !important;
+  border-bottom: 1px solid rgba(166,137,89,0.3) !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.md-typeset h2 {
+  font-family: 'Lora', serif !important;
+  font-weight: 500 !important;
+  color: #A68959 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.md-typeset h3,
+.md-typeset h4 {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #B8C0CC !important;
+}
+
+/* Links */
+.md-typeset a {
+  color: #A68959 !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(166,137,89,0.3) !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.md-typeset a:hover {
+  border-bottom-color: #A68959 !important;
+}
+
+/* Code blocks */
+.md-typeset pre {
+  background-color: #1E2935 !important;
+  border: 1px solid rgba(166,137,89,0.2) !important;
+  border-left: 3px solid #A68959 !important;
+  border-radius: 0 !important;
+}
+
+.md-typeset code {
+  background-color: rgba(166,137,89,0.1) !important;
+  color: #C9A96E !important;
+  border-radius: 0 !important;
+  padding: 2px 6px !important;
+}
+
+/* Admonitions */
+.md-typeset .admonition {
+  border-radius: 0 !important;
+  border-left-color: #A68959 !important;
+  background-color: rgba(166,137,89,0.08) !important;
+}
+
+.md-typeset .admonition-title {
+  background-color: rgba(166,137,89,0.15) !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+/* Tables */
+.md-typeset table {
+  border: 1px solid rgba(166,137,89,0.2) !important;
+}
+
+.md-typeset table th {
+  background-color: rgba(166,137,89,0.12) !important;
+  color: #A68959 !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+.md-typeset table td {
+  border-color: rgba(166,137,89,0.15) !important;
+  color: #B8C0CC !important;
+}
+
+.md-typeset table tr:hover td {
+  background-color: rgba(166,137,89,0.05) !important;
+}
+
+/* Search */
+.md-search__input {
+  background-color: #1E2935 !important;
+  color: #E8E6E1 !important;
+  border: 1px solid rgba(166,137,89,0.3) !important;
+  border-radius: 0 !important;
+}
+
+/* Footer */
+.md-footer {
+  background-color: #18222C !important;
+  border-top: 1px solid rgba(166,137,89,0.25) !important;
+}
+
+.md-footer-meta {
+  background-color: #151E28 !important;
+}
+
+/* Selection */
+::selection {
+  background: #A68959 !important;
+  color: #18222C !important;
+}
