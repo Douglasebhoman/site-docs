@@ -1,16 +1,20 @@
 # douglasebhoman.com — Site Documentation
 
-This is the technical documentation for [douglasebhoman.com](https://douglasebhoman.com) — a static portfolio website and blog built in pure HTML/CSS/JS, deployed via GitHub Pages.
+Technical documentation for [douglasebhoman.com](https://douglasebhoman.com)
+— a static site built in pure HTML, CSS, and vanilla JavaScript, deployed
+via GitHub Pages with no framework, no build step, and no CMS.
 
 Use the navigation to explore:
 
-- **Overview** — tech stack, dependencies, and live site details
-- **Architecture** — file structure and design decisions
-- **Local Setup** — how to run the site on your machine
-- **Deployment** — how the site gets from local to live
-- **Content Guide** — how to add a new blog post
-- **Contributing** — conventions, commit messages, and pull requests
+- **Overview** — site structure, dependencies, and deployment configuration
+- **Architecture** — file structure, page conventions, and design tokens
+- **JavaScript** — every homepage interaction with properties, triggers, and behaviour
+- **Local Setup** — prerequisites and step-by-step local environment setup
+- **Deployment** — deployment pipeline, custom domain, and verification
+- **Content Guide** — instructions for updating every page type on the site
+- **Contributing** — commit conventions, code style, and pull request process
 
 ---
 
-Built and maintained by [Douglas Ebhoman](https://douglasebhoman.com) — Technical Writer and Docs-as-Code practitioner based in Prague.
+Built and maintained by [Douglas Ebhoman](https://douglasebhoman.com) —
+Documentation Systems Specialist based in Prague.
