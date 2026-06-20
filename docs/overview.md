@@ -1,34 +1,101 @@
-# douglasebhoman.com
+# Overview
 
-A static portfolio website built in pure HTML/CSS/JS, hosted on GitHub, and deployed via GitHub Actions and GitHub Pages.
+## What this site is
 
-## Project Details
+douglasebhoman.com is the professional web presence and freelance practice
+of Douglas Ebhoman, a documentation systems specialist based in Prague.
+It is a static site built in pure HTML, CSS, and JavaScript. There is no
+framework, no build step, and no CMS. The repository contents are the
+deployment artefact.
+
+## Project details
 
 | Property | Value |
-|----------|-------|
-| GitHub Repo | https://github.com/Douglasebhoman/douglasebhoman.github.io.git |
-| Tech Stack | HTML, CSS, JavaScript |
-| Build Tools | None |
-| Deployment Trigger | Push to main |
-| Live Site | https://douglasebhoman.com |
+| --- | --- |
+| GitHub repo | https://github.com/Douglasebhoman/douglasebhoman.github.io |
+| Live site | https://douglasebhoman.com |
+| Tech stack | HTML, CSS, Vanilla JavaScript |
+| Build tools | None |
+| Deployment | Push to `main` triggers GitHub Pages automatically |
+
+## Site structure
+
+| URL | Page | Purpose |
+| --- | --- | --- |
+| `/` | Homepage | Hero, health check widget, selected work, writing samples, documentation audit service, social proof, contact, newsletter |
+| `/work/` | Work | Full grid of documentation portfolio pieces |
+| `/services/` | Services | Documentation Audit service — pricing, deliverables, FAQ |
+| `/audit/` | Audit | Standalone audit booking page |
+| `/blog/` | Blog index | Systems Over Sentences series — article grid and newsletter |
+| `/blog/posts/from-writing-to-documentation-systems/` | Post 01 | From Writing to Documentation Systems |
+| `/blog/posts/your-documentation-is-a-bakery/` | Post 02 | Your Documentation is a Bakery. Here's How to Build a Supermarket. |
+| `/blog/posts/how-product-teams-actually-handle-documentation/` | Post 03 | How Product Teams Actually Handle Documentation (And Why It Usually Fails) |
+| `/blog/posts/writing-for-developers-vs-non-technical-users/` | Post 04 | Writing for Developers vs Non-Technical Users: Why the Difference Matters |
+| `/blog/posts/anatomy-of-great-documentation/` | Post 05 | The Anatomy of Great Documentation |
+| `/blog/posts/introduction-to-structured-writing/` | Post 06 | Introduction to Structured Writing |
+| `/404.html` | 404 | Custom error page with navigation back to the homepage |
 
 ## Dependencies
 
-### 1. Fonts
-- **Provider:** Google Fonts
-- **Families:** DM Mono, Lora
-- **Loading method:** CDN via `<head>`
+### Fonts
 
-### 2. Newsletter
-- **Provider:** MailerLite
-- **Script:** Universal embed
-- **Account ID:** `2241731`
-- **Form ID:** `8iCjwu`
+| Property | Value |
+| --- | --- |
+| Provider | Google Fonts |
+| Families | Fraunces, DM Sans, DM Mono |
+| Loading method | CDN link in `<head>` on every page |
 
-### 3. Comments
-- **Provider:** Giscus
-- **Requires:** GitHub Discussions enabled on `douglasebhoman.github.io`
+### Newsletter
+
+| Property | Value |
+| --- | --- |
+| Provider | MailerLite |
+| Account ID | `2241731` |
+| Form ID | `8iCjwu` |
+| Placement | Homepage contact section, blog index, all blog post pages |
+| Welcome sequence | Two-email automation active |
+
+### Comments
+
+| Property | Value |
+| --- | --- |
+| Provider | Giscus |
+| Backend | GitHub Discussions on `douglasebhoman.github.io` |
+| Repo ID | `R_kgDORhvuTg` |
+| Category ID | `DIC_kwDORhvuTs4C53Ys` |
+| Mapping | `pathname` — each post gets its own discussion thread |
+| Placement | All blog post pages |
+
+### Booking
+
+| Property | Value |
+| --- | --- |
+| Provider | Calendly |
+| Link | https://calendly.com/douglas-douglasebhoman/30min |
+| Placement | Homepage nav, homepage CTA section, services page, audit page |
+
+### Documentation health check widget
+
+| Property | Value |
+| --- | --- |
+| Type | Rule-based scoring engine |
+| Questions | Six |
+| Dimensions scored | Accuracy, ownership, findability |
+| Output | Score percentage, category label, three dimension health bars, per-answer findings, weakest dimension summary |
+| States | Three — questions, results, reset. Reset clears all answers and returns to question one. |
+| Placement | Homepage |
 
 ## Deployment
 
-Triggered automatically on push to `main` via GitHub Actions, deployed to GitHub Pages.
+Every push to `main` triggers the GitHub Pages `pages-build-deployment`
+workflow automatically. There is no build step. The repository is served
+as-is. Changes are live within one to two minutes of pushing.
+
+| Property | Value |
+| --- | --- |
+| Custom domain | `douglasebhoman.com` |
+| DNS | Cloudflare — DNS-only mode, proxy disabled |
+| HTTPS | Issued automatically by GitHub via Let's Encrypt |
+
+**Cloudflare proxy must remain disabled.** Enabling it breaks GitHub's
+certificate issuance.

@@ -1,9 +1,13 @@
 site_name: douglasebhoman.com — Site Documentation
+
 site_url: https://douglasebhoman.com/site-docs/
+
 site_author: Douglas Ebhoman
-site_description: Technical documentation for the douglasebhoman.com portfolio site — architecture, local setup, deployment, and contributing guidelines.
+
+site_description: Technical documentation for douglasebhoman.com — architecture, local setup, deployment, and contributing guidelines.
 
 repo_name: Douglasebhoman/douglasebhoman.github.io
+
 repo_url: https://github.com/Douglasebhoman/douglasebhoman.github.io
 
 theme:
@@ -31,6 +35,7 @@ nav:
   - Home: index.md
   - Overview: overview.md
   - Architecture: architecture.md
+  - JavaScript: javascript.md
   - Local Setup: local-setup.md
   - Deployment: deployment.md
   - Content Guide: content-guide.md
