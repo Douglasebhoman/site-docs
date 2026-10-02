@@ -4,14 +4,33 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install pinned dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build with warnings treated as errors
+        run: mkdocs build --strict
+
+      - name: Publish to the gh-pages branch
+        run: mkdocs gh-deploy --force
