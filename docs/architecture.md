@@ -176,10 +176,19 @@ Reference these tokens in all new CSS. Do not use raw hex values.
 | `--navy-mid` | `#1E2D3D` | Secondary dark surface |
 | `--navy-light` | `#243044` | Tertiary dark surface |
 | `--cream` | `#F9F7F4` | Primary light background |
+| `--cream-2` | `#F2EFE9` | Secondary light background for alternating sections and inset blocks |
+| `--white` | `#FFFFFF` | Defined but not used by any page |
 | `--gold` | `#B8962E` | Primary accent — CTAs, labels, borders |
 | `--gold-light` | `#D4B060` | Hover and highlight variant |
+| `--gold-subtle` | `rgba(184,150,46,0.08)` | Faint gold fill behind tags, icons, pull quotes and step numbers |
+| `--gold-border` | `rgba(184,150,46,0.20)` | Faint gold border on tags, buttons, options and callouts |
 | `--text-dark` | `#111827` | Primary body text on light backgrounds |
+| `--text-mid` | `#4B5563` | Secondary body text on light backgrounds, including blog post body copy |
 | `--text-muted` | `#9CA3AF` | De-emphasised text |
+| `--text-dim` | `rgba(255,255,255,0.45)` | Subheadings and supporting text on dark backgrounds |
+| `--text-ghost` | `rgba(255,255,255,0.25)` | Faintest text on dark backgrounds, used for the hero stat labels |
+| `--border-light` | `rgba(0,0,0,0.08)` | Dividers and borders on light surfaces |
+| `--border-dark` | `rgba(255,255,255,0.06)` | Dividers and borders on dark surfaces, including the navigation |
 | `--green` | `#4ADE80` | Availability indicator |
 
 ### Typography

@@ -194,10 +194,7 @@ deliverables, or FAQ change, edit the relevant section directly in
 dynamic component is the Calendly booking embed — it loads from an
 external script and renders the booking widget at runtime.
 
-If the Calendly booking link changes, update it in these locations:
-- `services/index.html` — booking CTA button
-- `index.html` — nav CTA, hero CTA, audit section CTA, final CTA
-- `audit/index.html` — Calendly embed URL
+If the Calendly booking link changes, follow [Publishing Checklist: Change the booking link](publishing-checklist.md#change-the-booking-link).
 
 ---
 

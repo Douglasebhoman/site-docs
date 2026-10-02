@@ -69,7 +69,6 @@ Individual posts are not listed here, because the list would go out of date with
 | Account ID | `2241731` |
 | Form ID | `8iCjwu` |
 | Placement | Homepage contact section, blog index, all blog post pages |
-| Welcome sequence | Two-email automation active |
 
 ### Comments
 
