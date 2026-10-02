@@ -5,8 +5,8 @@
 All file and folder names must use lowercase letters and hyphens instead of spaces.
 
 ```
-good: your-documentation-is-a-bakery
-bad:  Your Documentation Is A Bakery
+correct: your-documentation-is-a-bakery
+incorrect: Your Documentation Is A Bakery
 ```
 
 ## Commit message conventions
@@ -15,10 +15,11 @@ All commit messages must follow the Conventional Commits format: `type: short de
 
 | Type | When to use | Example |
 |------|-------------|---------|
-| `feat:` | Adding something new that didn't exist before | `feat: add Part 4 blog post` |
+| `feat:` | Adding something new that did not exist before | `feat: add Part 4 blog post` |
 | `fix:` | Correcting something broken or wrong | `fix: correct broken nav link on mobile` |
 | `docs:` | Updating documentation only — site-docs, README, Markdown files | `docs: update architecture section` |
-| `style:` | Visual or CSS changes that don't affect functionality | `style: adjust newsletter padding on mobile` |
+| `style:` | Visual or CSS changes that do not affect functionality | `style: adjust newsletter padding on mobile` |
+| `config:` | Changes to configuration files: mkdocs.yml, CNAME, workflow files | `config: add navigation.footer to mkdocs features` |
 | `chore:` | Maintenance tasks — reorganising files, renaming folders | `chore: rename assets folder structure` |
 
 ## Submitting changes
@@ -38,8 +39,8 @@ Always:
 **Class naming:** Use kebab-case — all lowercase, words separated by hyphens.
 
 ```
-good: nav-header, post-hero-inner, blog-footer-text
-bad:  navHeader, PostHeroInner, blogFooterText
+correct: nav-header, post-hero-inner, blog-footer-text
+incorrect: navHeader, PostHeroInner, blogFooterText
 ```
 
 **CSS location:**
