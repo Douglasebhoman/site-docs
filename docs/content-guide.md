@@ -11,213 +11,112 @@ For JavaScript interactions, see [JavaScript](javascript.md).
 
 ## Adding a blog post
 
+A post is one file: `blog/posts/<slug>/index.html`. It contains front matter and the body HTML only. The shared layout, `_includes/layouts/post.html`, adds the head, navigation, hero, series navigation, comments, newsletter and footer at build time. Do not paste a page shell into a post.
+
+Publishing a post updates the blog index, the work page's "Latest writing" strip, the neighbouring posts' previous and next links, and the sitemap. You do not edit any of them.
+
 ### 1. Create the folder and file
 
-Each blog post lives in its own folder inside `blog/posts/`. The folder
-name becomes the URL slug.
-
+```
 blog/
-
 └── posts/
-
-└── your-post-slug/
-
-└── index.html
+    └── your-post-slug/
+        └── index.html
+```
 
 Folder naming rules:
+
 - Lowercase letters and hyphens only
 - No spaces, no uppercase, no special characters
-- The folder name must match the intended URL exactly
+- The folder name is the URL slug, and must match `canonicalUrl`
 
-correct:   anatomy-of-great-documentation
+### 2. Write the front matter
 
-incorrect: Anatomy of Great Documentation
-
-incorrect: anatomy_of_great_documentation
-
-### 2. Build the HTML structure
-
-Every post `index.html` must include the following sections in order.
-
-**Navigation**
-
-```html
-<nav class="nav" id="nav">
-  <a href="/" class="nav-logo">Douglas Ebhoman</a>
-  <div class="nav-links" id="navLinks">
-    <a href="/work/"     class="nav-text">Work</a>
-    <a href="#samples"   class="nav-text">Samples</a>
-    <a href="/services/" class="nav-text">Services</a>
-    <a href="/audit/"    class="nav-text">Audit</a>
-    <a href="#about"     class="nav-text">About</a>
-    <a href="/blog/"     class="nav-text nav-text--active">Blog</a>
-  </div>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"
-    aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+```yaml
+---
+layout: layouts/post.html
+part: 9
+title: "Your Post Title"
+description: "Meta description."
+ogDescription: "Open Graph description."
+twitterDescription: "Twitter description."
+ogImage: "https://douglasebhoman.com/assets/images/your-post-slug-cover.png"
+canonicalUrl: "https://douglasebhoman.com/blog/posts/your-post-slug/"
+seriesTag: "Systems Over Sentences &middot; Part 09 of 10"
+postSubtitle: "The subtitle shown in the hero."
+publishDate: "September 25, 2026"
+readTime: "8 min read"
+cardImage: "your-post-slug-cover.png"
+cardDate: "September 2026"
+cardExcerpt: "The excerpt shown on cards."
+pullQuote: "The pull quote shown on the featured card."
+---
 ```
 
-**Post hero**
+Required fields:
 
-```html
-<section class="post-hero">
-  <div class="post-hero-inner">
-    <a href="/blog/" class="post-back">← All posts</a>
-    <span class="post-series-tag">Systems Over Sentences · Part ? of 10</span>
-    <h1 class="post-title">Post Title</h1>
-    <p class="post-subtitle">Subtitle</p>
-    <div class="post-meta">
-      <span class="post-meta-item">Douglas Ebhoman</span>
-      <span class="post-meta-item">Published Month Day, Year</span>
-      <span class="post-meta-item">X min read</span>
-    </div>
-  </div>
-</section>
-```
+| Field | Meaning |
+| --- | --- |
+| `layout` | Always `layouts/post.html` |
+| `part` | Series number. A post without it is left out of every listing. It sets the order and the previous and next links |
+| `title` | Post heading, card title and image alt text |
+| `description`, `ogDescription`, `twitterDescription` | Meta, Open Graph and Twitter descriptions |
+| `ogImage` | Absolute URL of the share image |
+| `canonicalUrl` | Canonical link. Also used as the post's sitemap location |
+| `seriesTag` | Hero label, for example `Systems Over Sentences &middot; Part 09 of 10` |
+| `postSubtitle` | Hero subtitle. May contain HTML |
+| `publishDate` | Displayed date. Must be in the form `September 25, 2026`, because the sitemap parses it |
+| `readTime` | Displayed read time |
+| `cardImage` | File name in `assets/images/`, used on cards and as the default banner |
+| `cardDate`, `cardExcerpt`, `pullQuote` | Card date in the form `September 2026`, card excerpt and pull quote |
 
-**Cover image**
+Optional fields:
 
-```html
-<div class="post-cover">
-  <img
-    src="../../../assets/images/post-slug-cover.png"
-    width="1200"
-    height="630"
-    loading="eager"
-  />
-</div>
-```
+| Field | Meaning |
+| --- | --- |
+| `draft` | See [Drafts](#drafts) |
+| `banner` | Shows the hero banner |
+| `bannerImage` | Replaces `cardImage` in the banner |
+| `pageTitle`, `ogTitle` | Override the page title and the Open Graph title |
+| `jsonLd` | Adds structured data |
+| `extraCss` | Loads extra styles. Values: `posts01to04`, `posts06to07` |
+| `newsletter*` | Adjust the newsletter block |
 
-Cover image naming convention: `post-slug-cover.png`
-Example: `anatomy-of-great-documentation-cover.png`
+Older posts still carry `partNav`, `relatedPrev`, `relatedNext` and `nextDisabledLabel`. Nothing reads these fields. Do not add them to new posts.
 
-Place the cover image in `assets/images/` before pushing.
+### 3. Write the body
 
-**Post body**
+Below the front matter, write the post body as HTML. Start at the first paragraph or heading of the article. Do not include `<html>`, `<head>`, navigation or footer.
 
-```html
-<div class="post-body-wrap">
-  <article class="post-body">
-    <!-- Post content here -->
-  </article>
-</div>
-```
+### 4. Add the images
 
-**Series navigation**
+Place the file named in `cardImage` in `assets/images/`. If `ogImage` points to a different file, add that too. A missing image does not fail the build.
 
-For posts that are not the last in the series:
-
-```html
-<nav class="series-nav">
-  <a href="/blog/" class="series-nav-link">← All posts</a>
-  <a href="/blog/posts/next-post-slug/"
-    class="series-nav-link series-nav-link--next">
-    Part ?: Next Post Title →
-  </a>
-</nav>
-```
-
-For the last post in the series, omit the next link:
-
-```html
-<nav class="series-nav">
-  <a href="/blog/" class="series-nav-link">← All posts</a>
-</nav>
-```
-
-**Comments**
-
-```html
-<section class="comments-section">
-  <p class="comments-label">Discussion</p>
-  <script src="https://giscus.app/client.js"
-    data-repo="Douglasebhoman/douglasebhoman.github.io"
-    data-repo-id="R_kgDORhvuTg"
-    data-category="Announcements"
-    data-category-id="DIC_kwDORhvuTs4C53Ys"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang="en"
-    data-loading="lazy"
-    crossorigin="anonymous"
-    async>
-  </script>
-</section>
-```
-
-**Newsletter**
-
-```html
-<section class="post-newsletter">
-  <div class="post-newsletter-inner">
-    <div>
-      <p class="post-newsletter-label">Newsletter</p>
-      <p class="post-newsletter-desc">
-        One post a week on how documentation actually works.<br>
-        No spam. Unsubscribe anytime.
-      </p>
-    </div>
-    <script>
-      (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-      .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-      (window,document,'script',
-      'https://assets.mailerlite.com/js/universal.js','ml');
-      ml('account', '2241731');
-    </script>
-    <div class="ml-embedded" data-form="8iCjwu" style="width: 100%;"></div>
-  </div>
-</section>
-```
-
-**Footer**
-
-```html
-<footer class="post-footer">
-  <div class="post-footer-inner">
-    <p class="post-footer-text">
-      © 2026 Douglas Ebhoman · Narrative is infrastructure. I treat it that way.
-    </p>
-    <a href="/blog/" class="post-footer-link">← Back to blog</a>
-  </div>
-</footer>
-```
-
-### 3. Update the blog index
-
-Open `blog/index.html` in VS Code. Add the new post card to the article
-grid. Follow the existing card structure — duplicate the most recent card
-and update the slug, title, date, and description.
-
-### 4. Update sitemap.xml
-
-Add a new `<url>` entry to `sitemap.xml`:
-
-```xml
-<url>
-  <loc>https://douglasebhoman.com/blog/posts/your-post-slug/</loc>
-  <lastmod>YYYY-MM-DD</lastmod>
-</url>
-```
-
-### 5. Push to main
+### 5. Preview
 
 ```bash
-git add -A
-git commit -m "content: publish Part 07 — Your Post Title Here"
-git push origin main
+npm start
 ```
 
-Replace `07` with the actual part number and `Your Post Title Here` with
-the exact post title before running the commit command.
+Check the post, `/blog/`, `/work/` and `/sitemap.xml`.
 
-The post is live within one to two minutes of pushing.
+### 6. Publish
+
+Work through [Publishing Checklist: Publish a blog post](publishing-checklist.md#publish-a-blog-post), then commit on a branch and merge:
+
+```bash
+git switch -c content/part-NN
+git add blog/posts/your-post-slug assets/images
+git commit -m "feat: publish Part NN, Your Post Title"
+git push origin content/part-NN
+```
+
+### Drafts
+
+`draft: true` removes a post from the posts collections. The post then does not appear on the blog index, the work page, the series navigation or the sitemap.
+
+!!! warning "A draft is still published at its own URL"
+    The flag hides a post from every listing, but Eleventy still builds the page, and it is deployed. Anyone who has the URL can read it. To keep a post fully private until launch, do not merge it into `main`.
 
 ---
 
@@ -267,7 +166,7 @@ Rules:
 - Increment `work-num` sequentially
 - Use `reveal-d1` and `reveal-d2` alternately for staggered animation
 - Add the card image to `assets/images/` before pushing
-- Update `sitemap.xml` if the portfolio piece has its own URL
+- If the piece has its own URL, follow [Publishing Checklist: Add or remove a portfolio piece](publishing-checklist.md#add-or-remove-a-portfolio-piece)
 
 ### Removing a portfolio card
 
@@ -281,8 +180,7 @@ Removing a card requires four steps beyond deleting the block:
 3. **Check the homepage** — if the removed piece appeared in the selected
    work grid on `index.html`, replace it with another piece or remove
    the card from that grid too.
-4. **Update `sitemap.xml`** — remove the entry for the piece if it had
-   its own URL.
+4. **Update the sitemap and counts**: follow [Publishing Checklist: Add or remove a portfolio piece](publishing-checklist.md#add-or-remove-a-portfolio-piece).
 
 ---
 
@@ -296,10 +194,7 @@ deliverables, or FAQ change, edit the relevant section directly in
 dynamic component is the Calendly booking embed — it loads from an
 external script and renders the booking widget at runtime.
 
-If the Calendly booking link changes, update it in these locations:
-- `services/index.html` — booking CTA button
-- `index.html` — nav CTA, hero CTA, audit section CTA, final CTA
-- `audit/index.html` — Calendly embed URL
+If the Calendly booking link changes, follow [Publishing Checklist: Change the booking link](publishing-checklist.md#change-the-booking-link).
 
 ---
 
@@ -349,19 +244,18 @@ Update both when availability changes.
 
 ## Updating the footer
 
-The footer is hardcoded in every HTML file across the site. It is not a
-shared component. If the footer content changes — navigation links,
-contact details, copyright year, or tagline — the change must be applied
-to every HTML file manually.
+Blog post footers come from the shared layout, `_includes/layouts/post.html`. A change there reaches every post at the next build, so posts are not in the list below.
 
-Files that contain the footer:
+The footer on every other page is hard-coded in that page. It is not a shared component. If the footer content changes (navigation links, contact details, copyright year or tagline), apply the change to each of these files by hand:
+
 - `index.html`
 - `work/index.html`
 - `services/index.html`
 - `audit/index.html`
 - `blog/index.html`
-- `blog/posts/[every post]/index.html`
-- `404.html`
+- `_includes/layouts/post.html`, for blog posts
+
+`404.html` has no footer.
 
 Use VS Code's global find and replace (`⌘⇧H` on Mac, `Ctrl+Shift+H` on
 Windows) to apply footer changes across all files simultaneously.

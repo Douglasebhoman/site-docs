@@ -1,64 +1,80 @@
 # Local Setup
 
+This page covers running the main website on your machine. To work on this documentation site, see [Maintaining These Docs](maintaining-these-docs.md).
+
 ## Prerequisites
 
-The following must be available before setting up the project locally:
+| Tool | Version | Check with |
+| --- | --- | --- |
+| Node.js | 22 (matches the deploy workflow) | `node --version` |
+| npm | Bundled with Node 22 | `npm --version` |
+| Git | Tested with 2.52.0 | `git --version` |
+| Web browser | Current release of Chrome, Firefox, Edge or Safari | Browser **About** page |
+| GitHub account | Write access to `Douglasebhoman/douglasebhoman.github.io` | Not applicable |
 
-- GitHub account
-- Git installed on your machine
-- Terminal (Command Prompt, PowerShell, or any terminal emulator)
-- VS Code
-- Live Server extension installed in VS Code
-- Web browser (Chrome recommended)
-- Internet connection
+Eleventy 3.1.6 is installed by npm from `package.json`. You do not install it separately.
 
 ## Step-by-step guide
 
-**1. Open a terminal.**
+1. Clone the repository and move into it:
 
-**2. Navigate to your preferred directory:**
+    ```bash
+    git clone https://github.com/Douglasebhoman/douglasebhoman.github.io.git
+    cd douglasebhoman.github.io
+    ```
 
-cd ~
+2. Install the exact dependency versions from the lockfile:
 
-**3. Clone the repository:**
-git clone https://github.com/Douglasebhoman/douglasebhoman.github.io.git
+    ```bash
+    npm ci
+    ```
 
-**4. Move into the project folder:**
-cd douglasebhoman.github.io
+3. Start the local server:
 
-**5. Open the project in VS Code:**
-code .
+    ```bash
+    npm start
+    ```
 
-> **Note:** This requires VS Code to be added to PATH during installation.
-> If it does not work, open VS Code manually and use File, then Open Folder.
+    This runs `eleventy --serve`. It builds the site into `_site/`, serves it, and rebuilds when you save a file.
 
-**6. In the VS Code file explorer, click `index.html` to open it.**
+4. Open the address Eleventy prints in the terminal, normally `http://localhost:8080`.
 
-**7. Right-click `index.html` and select Open with Live Server.**
+5. Stop the server with `Ctrl+C`.
 
-**8. Your default browser will open the site at `http://127.0.0.1:5500`**
+!!! warning "Do not open the source files directly"
+    Blog post files contain only front matter and a body. The shared layout adds the head, navigation and footer at build time. Opening a source file in the browser, or serving the repository with Live Server, shows an unstyled fragment. Always preview through `npm start`.
 
-## Previewing other pages locally
-
-Live Server serves the entire repository, not just `index.html`. Any page
-can be previewed by navigating to its path in the browser after Live Server
-is running:
+## Previewing pages locally
 
 | Page | Local URL |
 | --- | --- |
-| Homepage | `http://127.0.0.1:5500` |
-| Work | `http://127.0.0.1:5500/work/` |
-| Services | `http://127.0.0.1:5500/services/` |
-| Audit | `http://127.0.0.1:5500/audit/` |
-| Blog index | `http://127.0.0.1:5500/blog/` |
-| Blog post | `http://127.0.0.1:5500/blog/posts/post-slug/` |
-| 404 | `http://127.0.0.1:5500/404.html` |
+| Homepage | `http://localhost:8080/` |
+| Work | `http://localhost:8080/work/` |
+| Services | `http://localhost:8080/services/` |
+| Audit | `http://localhost:8080/audit/` |
+| Blog index | `http://localhost:8080/blog/` |
+| Blog post | `http://localhost:8080/blog/posts/post-slug/` |
+| Sitemap | `http://localhost:8080/sitemap.xml` |
+| 404 | `http://localhost:8080/404.html` |
+
+## Build without serving
+
+```bash
+npm run build
+```
+
+This writes the site to `_site/` exactly as the deploy workflow does. Use it to confirm a change builds cleanly before you push. `_site/` is ignored by Git and must never be edited by hand or committed.
+
+## Check for outdated claims
+
+```bash
+bash scripts/drift-check.sh
+```
+
+The script fails if a page contains a claim that no longer matches the verifiable record. It must print `drift-check: clean` before you merge.
 
 ## Notes
 
-- Changes saved in VS Code update the browser preview automatically while
-  Live Server is running
-- The MailerLite newsletter form and Giscus comments require an internet
-  connection to load
-- The documentation audit widget runs entirely client-side and works
-  without an internet connection
+- The MailerLite newsletter form and Giscus comments load from external domains and need an internet connection.
+- The documentation health check widget runs entirely in the browser and works offline.
+- Posts marked `draft: true` render locally. See [Content Guide](content-guide.md) for what the flag does on the live site.
