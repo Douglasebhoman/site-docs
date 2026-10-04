@@ -1,6 +1,6 @@
 # JavaScript
 
-All JavaScript on this site is vanilla — no frameworks, no external
+All JavaScript on this site is vanilla: no frameworks, no external
 libraries. Every interaction lives in a `<script>` block before `</body>`
 on the page it belongs to. There are no shared JS files.
 
@@ -17,9 +17,9 @@ HTML5 Canvas API.
 | Property | Value |
 | --- | --- |
 | Element | `<canvas id="heroCanvas">` |
-| Particle count | Calculated from canvas area — maximum 80 |
+| Particle count | Calculated from canvas area (maximum 80) |
 | Particle colour | `rgba(184,150,46, variable opacity)` |
-| Connection distance | 120px — particles within range are connected by a line |
+| Connection distance | 120px. Particles within range are connected by a line |
 | Mouse interaction | Particles repel from the cursor within a 150px radius |
 | Performance | Pauses via `IntersectionObserver` when the hero is out of view |
 
@@ -30,16 +30,16 @@ Renders small gold particles that follow the cursor across the page.
 | Property | Value |
 | --- | --- |
 | Element | Particles are appended directly to `document.body` |
-| z-index | `9997` — below the command palette overlay (`9998`) and noise overlay (`9998`) |
+| z-index | `9997`, below the command palette overlay (`9998`) and noise overlay (`9998`) |
 | Particle size | 4px circle |
 | Particle colour | `rgba(184,150,46, 0.6)` |
 | Maximum particles | 15 active at once |
 | Throttle | One particle every 30ms |
-| Pointer events | `none` — particles never block clicks |
+| Pointer events | `none`, so particles never block clicks |
 
 ### Scrolling gold strip
 
-The strip below the hero is a pure CSS animation — there is no JavaScript
+The strip below the hero is a pure CSS animation. There is no JavaScript
 involved. It is documented here to prevent a maintainer from looking for
 JavaScript that does not exist.
 
@@ -80,7 +80,7 @@ animate on a continuous sine-wave path.
 | --- | --- |
 | Elements | `.ambient-orb` |
 | Animation | `Math.sin` / `Math.cos` path, updates every frame via `requestAnimationFrame` |
-| Performance | Runs continuously — not paused when out of view. Acceptable at current orb count (three per section). If orb count increases significantly, add `IntersectionObserver` pause logic matching the pattern used in the particle network. |
+| Performance | Runs continuously, not paused when out of view. Acceptable at current orb count (three per section). If orb count increases significantly, add `IntersectionObserver` pause logic matching the pattern used in the particle network. |
 
 ### Scroll reveal
 
@@ -92,8 +92,8 @@ viewport.
 | Trigger class | `reveal` |
 | Active class | `visible` |
 | Mechanism | `IntersectionObserver`, threshold `0.1`, rootMargin `-40px` |
-| Delay variants | `reveal-d1`, `reveal-d2`, `reveal-d3` — CSS animation delays |
-| Unobserves | Yes — each element is unobserved after it becomes visible |
+| Delay variants | `reveal-d1`, `reveal-d2`, `reveal-d3` (CSS animation delays) |
+| Unobserves | Yes. Each element is unobserved after it becomes visible |
 
 ### Animated counters
 
@@ -102,11 +102,11 @@ by the scroll reveal `IntersectionObserver`.
 
 | Property | Value |
 | --- | --- |
-| Trigger attribute | `data-count` — target number |
-| Suffix attribute | `data-suffix` — appended after the number (e.g. `+`) |
+| Trigger attribute | `data-count` (target number) |
+| Suffix attribute | `data-suffix`, appended after the number (e.g. `+`) |
 | Duration | 900ms |
 | Easing | Cubic ease-out |
-| Runs once | Yes — `data-animated` flag prevents re-triggering |
+| Runs once | Yes. The `data-animated` flag prevents re-triggering |
 
 ### Typewriter effect
 
@@ -115,7 +115,7 @@ Cycles through three documentation snippets in the hero code panel.
 | Property | Value |
 | --- | --- |
 | Element | `<span id="twCode">` |
-| Snippets | Three — docs strategy, audit dimensions, deliverables |
+| Snippets | Three: docs strategy, audit dimensions, deliverables |
 | Typing speed | 45ms per character |
 | Delete speed | 20ms per character |
 | Pause at end | 2800ms before deleting |
@@ -130,7 +130,7 @@ Rotates three items in the hero side panel automatically.
 | Elements | `.side-carousel-item` |
 | Interval | 4000ms |
 | Active class | `active` |
-| Controls | Dot buttons — clicking a dot pauses the timer and jumps to that item |
+| Controls | Dot buttons. Clicking a dot pauses the timer and jumps to that item |
 
 ### Documentation health check widget
 
@@ -175,7 +175,7 @@ pieces and navigation destinations.
 | --- | --- |
 | Trigger | `⌘K` / `Ctrl+K` or the search button in the nav |
 | Close | `Escape` or clicking outside the panel |
-| Items | Six — audit booking, health check, four portfolio pieces, email |
+| Items | Six: audit booking, health check, four portfolio pieces, email |
 | Filter | Live text match on label and description |
 
 ### Hamburger navigation
@@ -198,7 +198,7 @@ default browser scroll with a custom eased animation.
 | --- | --- |
 | Selector | `document.querySelectorAll('a[href^="#"]')` |
 | Duration | 800ms |
-| Easing | Quartic ease-out — `1 - Math.pow(1 - progress, 4)` |
+| Easing | Quartic ease-out: `1 - Math.pow(1 - progress, 4)` |
 
 ### Writing samples tab switcher
 
@@ -207,8 +207,8 @@ Controls the four tabbed panels in the writing samples section.
 | Property | Value |
 | --- | --- |
 | Trigger | `switchTab(btn, id)` called via `onclick` on each tab button |
-| Active class | `active` — toggled on both the selected button and its panel |
-| Transition | Controlled by CSS on `.sample-panel` — panels without `active` are hidden |
+| Active class | `active`, toggled on both the selected button and its panel |
+| Transition | Controlled by CSS on `.sample-panel`. Panels without `active` are hidden |
 | Default active | First tab (`panel-api`) has `active` class set in HTML on page load |
 | Current panels | `panel-api`, `panel-start`, `panel-arch`, `panel-git` |
 
@@ -226,7 +226,7 @@ Controls the four tabbed panels in the writing samples section.
 </div>
 ```
 
-3. Do not add `active` to the new button or panel — the default active
+3. Do not add `active` to the new button or panel. The default active
    state is set in HTML on the first tab only. The switcher handles
    everything else.
 
@@ -236,7 +236,7 @@ Controls the four tabbed panels in the writing samples section.
 
 1. Write the interaction as a self-contained function in the `<script>`
    block before `</body>` in `index.html`
-2. Do not import external libraries — keep all interactions in vanilla JS
+2. Do not import external libraries. Keep all interactions in vanilla JS
 3. Use `IntersectionObserver` for any animation that should pause when
    out of view
 4. Add a row to the relevant table in this document describing the new

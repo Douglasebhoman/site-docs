@@ -6,7 +6,7 @@ Every page on this site follows the same structural rule without exception:
 
 | Concern | Location |
 | --- | --- |
-| Global styles | `styles.css` — linked from every page |
+| Global styles | `styles.css`, linked from every page |
 | Page-specific styles | `<style>` block in `<head>` of each page |
 | JavaScript interactions | `<script>` block before `</body>` of each page |
 | No per-page CSS files | All page-specific overrides stay inline |
@@ -178,7 +178,7 @@ Reference these tokens in all new CSS. Do not use raw hex values.
 | `--cream` | `#F9F7F4` | Primary light background |
 | `--cream-2` | `#F2EFE9` | Secondary light background for alternating sections and inset blocks |
 | `--white` | `#FFFFFF` | Defined but not used by any page |
-| `--gold` | `#B8962E` | Primary accent — CTAs, labels, borders |
+| `--gold` | `#B8962E` | Primary accent: CTAs, labels, borders |
 | `--gold-light` | `#D4B060` | Hover and highlight variant |
 | `--gold-subtle` | `rgba(184,150,46,0.08)` | Faint gold fill behind tags, icons, pull quotes and step numbers |
 | `--gold-border` | `rgba(184,150,46,0.20)` | Faint gold border on tags, buttons, options and callouts |
@@ -205,13 +205,13 @@ Reference these tokens in all new CSS. Do not use raw hex values.
 | --- | --- | --- |
 | `--container` | `960px` | Maximum content width |
 | `--pad` | `clamp(24px, 5vw, 48px)` | Responsive horizontal padding |
-| `--fast` | `0.15s ease` | Quick transitions — hover states |
-| `--base` | `0.25s ease` | Standard transitions — cards, panels |
+| `--fast` | `0.15s ease` | Quick transitions: hover states |
+| `--base` | `0.25s ease` | Standard transitions: cards, panels |
 
 ## Responsive breakpoints
 
 | Breakpoint | Width | What changes |
 | --- | --- | --- |
-| Desktop | Above `768px` | Full layout — two-column sections, side-by-side footer grid, inline nav links |
+| Desktop | Above `768px` | Full layout: two-column sections, side-by-side footer grid, inline nav links |
 | Mobile | `768px` and below | Nav collapses to hamburger menu, footer grid stacks to single column, hero stats switch to 2×2 grid, about section drops to single column |
 | Small mobile | `480px` and below | Reduced padding, smaller type scale, single-column contact grid |
