@@ -77,4 +77,4 @@ The script fails if a page contains a claim that no longer matches the verifiabl
 
 - The MailerLite newsletter form and Giscus comments load from external domains and need an internet connection.
 - The documentation health check widget runs entirely in the browser and works offline.
-- Posts marked `draft: true` render locally. See [Content Guide](content-guide.md) for what the flag does on the live site.
+- Draft posts are excluded from production builds entirely. They render only under `npm start`. Remove `draft: true` to publish. See [Content Guide](content-guide.md#drafts).
