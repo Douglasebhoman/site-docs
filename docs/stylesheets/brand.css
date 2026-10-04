@@ -1,5 +1,5 @@
 /* ============================================================
-   BRAND STYLESHEET — Douglas Ebhoman
+   BRAND STYLESHEET: Douglas Ebhoman
    Navy: #18222C | Gold: #A68959 | Silver: #B8C0CC
 ============================================================ */
 
@@ -203,4 +203,16 @@ body,
 ::selection {
   background: #A68959 !important;
   color: #18222C !important;
+}
+
+/* Drawer title below desktop width: wrap the full site name instead of
+   truncating it, and set it in navy so it reads on the gold drawer header. */
+@media screen and (max-width: 76.234375em) {
+  .md-nav--primary .md-nav__title[for=__drawer] {
+    white-space: normal !important;
+    height: auto !important;
+    min-height: 5.6rem;
+    line-height: 1.4 !important;
+    color: #18222C !important;
+  }
 }
