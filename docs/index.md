@@ -1,4 +1,4 @@
-# douglasebhoman.com — Site Documentation
+# douglasebhoman.com: Site Documentation
 
 Technical documentation for [douglasebhoman.com](https://douglasebhoman.com),
 a static site built in HTML, CSS and vanilla JavaScript, built with Eleventy and deployed to GitHub Pages by GitHub Actions, with no front-end framework and no CMS.
@@ -17,5 +17,5 @@ Use the navigation to explore:
 
 ---
 
-Built and maintained by [Douglas Ebhoman](https://douglasebhoman.com) —
+Built and maintained by [Douglas Ebhoman](https://douglasebhoman.com),
 Documentation Systems Specialist based in Prague.

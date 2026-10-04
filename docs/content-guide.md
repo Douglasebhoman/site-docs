@@ -171,12 +171,12 @@ Rules:
 
 Removing a card requires four steps beyond deleting the block:
 
-1. **Resequence the work numbers** — update every `work-num` value so
+1. **Resequence the work numbers**: update every `work-num` value so
    the sequence is unbroken. If you remove card 03, cards 04, 05, and 06
    become 03, 04, and 05.
-2. **Rebalance the reveal delay classes** — check that `reveal-d1` and
+2. **Rebalance the reveal delay classes**: check that `reveal-d1` and
    `reveal-d2` still alternate correctly across the remaining cards.
-3. **Check the homepage** — if the removed piece appeared in the selected
+3. **Check the homepage**: if the removed piece appeared in the selected
    work grid on `index.html`, replace it with another piece or remove
    the card from that grid too.
 4. **Update the sitemap and counts**: follow [Publishing Checklist: Add or remove a portfolio piece](publishing-checklist.md#add-or-remove-a-portfolio-piece).
@@ -190,7 +190,7 @@ The services page lives at `services/index.html`.
 The page documents the Documentation Audit service. If the pricing,
 deliverables, or FAQ change, edit the relevant section directly in
 `services/index.html`. All written content is hardcoded HTML. The one
-dynamic component is the Calendly booking embed — it loads from an
+dynamic component is the Calendly booking embed. It loads from an
 external script and renders the booking widget at runtime.
 
 If the Calendly booking link changes, follow [Publishing Checklist: Change the booking link](publishing-checklist.md#change-the-booking-link).

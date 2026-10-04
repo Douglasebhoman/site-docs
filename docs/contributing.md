@@ -17,14 +17,14 @@ All commit messages must follow the Conventional Commits format: `type: short de
 |------|-------------|---------|
 | `feat:` | Adding something new that did not exist before | `feat: add Part 4 blog post` |
 | `fix:` | Correcting something broken or wrong | `fix: correct broken nav link on mobile` |
-| `docs:` | Updating documentation only — site-docs, README, Markdown files | `docs: update architecture section` |
+| `docs:` | Updating documentation only: site-docs, README, Markdown files | `docs: update architecture section` |
 | `style:` | Visual or CSS changes that do not affect functionality | `style: adjust newsletter padding on mobile` |
 | `config:` | Changes to configuration files: mkdocs.yml, CNAME, workflow files | `config: add navigation.footer to mkdocs features` |
-| `chore:` | Maintenance tasks — reorganising files, renaming folders | `chore: rename assets folder structure` |
+| `chore:` | Maintenance tasks: reorganising files, renaming folders | `chore: rename assets folder structure` |
 
 ## Submitting changes
 
-Never push directly to `main`. This is a live site — broken code pushed to `main` deploys immediately.
+Never push directly to `main`. This is a live site. Broken code pushed to `main` deploys immediately.
 
 Always:
 1. Create a new branch for your change
@@ -36,7 +36,7 @@ Always:
 
 **Indentation:** 2 spaces throughout all HTML and CSS files.
 
-**Class naming:** Use kebab-case — all lowercase, words separated by hyphens.
+**Class naming:** Use kebab-case (all lowercase, words separated by hyphens).
 
 ```
 correct: nav-header, post-hero-inner, blog-footer-text
@@ -61,4 +61,4 @@ If you find a bug or want to suggest an improvement, raise a GitHub Issue on the
 
 [github.com/Douglasebhoman/douglasebhoman.github.io/issues](https://github.com/Douglasebhoman/douglasebhoman.github.io/issues)
 
-Describe the problem or suggestion clearly — include the page affected, what you expected to happen, and what actually happened.
+Describe the problem or suggestion clearly. Include the page affected, what you expected to happen, and what actually happened.

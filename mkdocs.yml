@@ -1,10 +1,10 @@
-site_name: douglasebhoman.com — Site Documentation
+site_name: "douglasebhoman.com: Site Documentation"
 
 site_url: https://douglasebhoman.com/site-docs/
 
 site_author: Douglas Ebhoman
 
-site_description: Technical documentation for douglasebhoman.com — architecture, local setup, deployment, and contributing guidelines.
+site_description: "Technical documentation for douglasebhoman.com: architecture, local setup, deployment, and contributing guidelines."
 
 repo_name: Douglasebhoman/site-docs
 
