@@ -1182,10 +1182,7 @@ For JavaScript interactions, see <a href="../javascript/">JavaScript</a>.</p>
 </code></pre></div>
 <h3 id="drafts">Drafts</h3>
 <p><code>draft: true</code> removes a post from the posts collections. The post then does not appear on the blog index, the work page, the series navigation or the sitemap.</p>
-<div class="admonition warning">
-<p class="admonition-title">A draft is still published at its own URL</p>
-<p>The flag hides a post from every listing, but Eleventy still builds the page, and it is deployed. Anyone who has the URL can read it. To keep a post fully private until launch, do not merge it into <code>main</code>.</p>
-</div>
+<p>Draft posts are excluded from production builds entirely. They render only under <code>npm start</code>. Remove <code>draft: true</code> to publish.</p>
 <hr />
 <h2 id="updating-the-work-page">Updating the work page</h2>
 <p>The work page lives at <code>work/index.html</code>.</p>

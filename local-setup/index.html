@@ -849,7 +849,7 @@
 <ul>
 <li>The MailerLite newsletter form and Giscus comments load from external domains and need an internet connection.</li>
 <li>The documentation health check widget runs entirely in the browser and works offline.</li>
-<li>Posts marked <code>draft: true</code> render locally. See <a href="../content-guide/">Content Guide</a> for what the flag does on the live site.</li>
+<li>Draft posts are excluded from production builds entirely. They render only under <code>npm start</code>. Remove <code>draft: true</code> to publish. See <a href="../content-guide/#drafts">Content Guide</a>.</li>
 </ul>
 
 

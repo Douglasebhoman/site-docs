@@ -872,6 +872,10 @@
 <td><code>npm ci</code> installs the exact versions in <code>package-lock.json</code></td>
 </tr>
 <tr>
+<td>Drift check</td>
+<td><code>bash scripts/drift-check.sh</code> fails the build if any source page contains a retired claim</td>
+</tr>
+<tr>
 <td>Build with Eleventy</td>
 <td><code>npx @11ty/eleventy</code> builds the site into <code>_site/</code></td>
 </tr>
@@ -930,6 +934,11 @@
 <td><code>build</code> job fails at <strong>Install dependencies</strong></td>
 <td><code>package-lock.json</code> is missing or does not match <code>package.json</code></td>
 <td>Run <code>npm install</code> locally, commit the updated lockfile, and push</td>
+</tr>
+<tr>
+<td><code>build</code> job fails at <strong>Drift check</strong></td>
+<td>A page contains a retired claim</td>
+<td>Run <code>bash scripts/drift-check.sh</code> locally, correct the page, and push</td>
 </tr>
 <tr>
 <td><code>build</code> job fails at <strong>Build with Eleventy</strong></td>
