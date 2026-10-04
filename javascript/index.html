@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Technical documentation for douglasebhoman.com — architecture, local setup, deployment, and contributing guidelines.">
+        <meta name="description" content="Technical documentation for douglasebhoman.com: architecture, local setup, deployment, and contributing guidelines.">
       
       
         <meta name="author" content="Douglas Ebhoman">
@@ -29,7 +29,7 @@
     
     
       
-        <title>JavaScript - douglasebhoman.com — Site Documentation</title>
+        <title>JavaScript - douglasebhoman.com: Site Documentation</title>
       
     
     
@@ -96,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="douglasebhoman.com — Site Documentation" class="md-header__button md-logo" aria-label="douglasebhoman.com — Site Documentation" data-md-component="logo">
+    <a href=".." title="douglasebhoman.com: Site Documentation" class="md-header__button md-logo" aria-label="douglasebhoman.com: Site Documentation" data-md-component="logo">
       
   <img src="../assets/logo.svg" alt="logo">
 
@@ -109,7 +109,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            douglasebhoman.com — Site Documentation
+            douglasebhoman.com: Site Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -207,12 +207,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="douglasebhoman.com — Site Documentation" class="md-nav__button md-logo" aria-label="douglasebhoman.com — Site Documentation" data-md-component="logo">
+    <a href=".." title="douglasebhoman.com: Site Documentation" class="md-nav__button md-logo" aria-label="douglasebhoman.com: Site Documentation" data-md-component="logo">
       
   <img src="../assets/logo.svg" alt="logo">
 
     </a>
-    douglasebhoman.com — Site Documentation
+    douglasebhoman.com: Site Documentation
   </label>
   
     <div class="md-nav__source">
@@ -979,7 +979,7 @@
 
 
 <h1 id="javascript">JavaScript</h1>
-<p>All JavaScript on this site is vanilla — no frameworks, no external
+<p>All JavaScript on this site is vanilla: no frameworks, no external
 libraries. Every interaction lives in a <code>&lt;script&gt;</code> block before <code>&lt;/body&gt;</code>
 on the page it belongs to. There are no shared JS files.</p>
 <h2 id="homepage-interactions">Homepage interactions</h2>
@@ -1002,7 +1002,7 @@ HTML5 Canvas API.</p>
 </tr>
 <tr>
 <td>Particle count</td>
-<td>Calculated from canvas area — maximum 80</td>
+<td>Calculated from canvas area (maximum 80)</td>
 </tr>
 <tr>
 <td>Particle colour</td>
@@ -1010,7 +1010,7 @@ HTML5 Canvas API.</p>
 </tr>
 <tr>
 <td>Connection distance</td>
-<td>120px — particles within range are connected by a line</td>
+<td>120px. Particles within range are connected by a line</td>
 </tr>
 <tr>
 <td>Mouse interaction</td>
@@ -1038,7 +1038,7 @@ HTML5 Canvas API.</p>
 </tr>
 <tr>
 <td>z-index</td>
-<td><code>9997</code> — below the command palette overlay (<code>9998</code>) and noise overlay (<code>9998</code>)</td>
+<td><code>9997</code>, below the command palette overlay (<code>9998</code>) and noise overlay (<code>9998</code>)</td>
 </tr>
 <tr>
 <td>Particle size</td>
@@ -1058,12 +1058,12 @@ HTML5 Canvas API.</p>
 </tr>
 <tr>
 <td>Pointer events</td>
-<td><code>none</code> — particles never block clicks</td>
+<td><code>none</code>, so particles never block clicks</td>
 </tr>
 </tbody>
 </table>
 <h3 id="scrolling-gold-strip">Scrolling gold strip</h3>
-<p>The strip below the hero is a pure CSS animation — there is no JavaScript
+<p>The strip below the hero is a pure CSS animation. There is no JavaScript
 involved. It is documented here to prevent a maintainer from looking for
 JavaScript that does not exist.</p>
 <p>The animation works by duplicating the <code>strip-track</code> element in HTML so
@@ -1142,7 +1142,7 @@ animate on a continuous sine-wave path.</p>
 </tr>
 <tr>
 <td>Performance</td>
-<td>Runs continuously — not paused when out of view. Acceptable at current orb count (three per section). If orb count increases significantly, add <code>IntersectionObserver</code> pause logic matching the pattern used in the particle network.</td>
+<td>Runs continuously, not paused when out of view. Acceptable at current orb count (three per section). If orb count increases significantly, add <code>IntersectionObserver</code> pause logic matching the pattern used in the particle network.</td>
 </tr>
 </tbody>
 </table>
@@ -1171,11 +1171,11 @@ viewport.</p>
 </tr>
 <tr>
 <td>Delay variants</td>
-<td><code>reveal-d1</code>, <code>reveal-d2</code>, <code>reveal-d3</code> — CSS animation delays</td>
+<td><code>reveal-d1</code>, <code>reveal-d2</code>, <code>reveal-d3</code> (CSS animation delays)</td>
 </tr>
 <tr>
 <td>Unobserves</td>
-<td>Yes — each element is unobserved after it becomes visible</td>
+<td>Yes. Each element is unobserved after it becomes visible</td>
 </tr>
 </tbody>
 </table>
@@ -1192,11 +1192,11 @@ by the scroll reveal <code>IntersectionObserver</code>.</p>
 <tbody>
 <tr>
 <td>Trigger attribute</td>
-<td><code>data-count</code> — target number</td>
+<td><code>data-count</code> (target number)</td>
 </tr>
 <tr>
 <td>Suffix attribute</td>
-<td><code>data-suffix</code> — appended after the number (e.g. <code>+</code>)</td>
+<td><code>data-suffix</code>, appended after the number (e.g. <code>+</code>)</td>
 </tr>
 <tr>
 <td>Duration</td>
@@ -1208,7 +1208,7 @@ by the scroll reveal <code>IntersectionObserver</code>.</p>
 </tr>
 <tr>
 <td>Runs once</td>
-<td>Yes — <code>data-animated</code> flag prevents re-triggering</td>
+<td>Yes. The <code>data-animated</code> flag prevents re-triggering</td>
 </tr>
 </tbody>
 </table>
@@ -1228,7 +1228,7 @@ by the scroll reveal <code>IntersectionObserver</code>.</p>
 </tr>
 <tr>
 <td>Snippets</td>
-<td>Three — docs strategy, audit dimensions, deliverables</td>
+<td>Three: docs strategy, audit dimensions, deliverables</td>
 </tr>
 <tr>
 <td>Typing speed</td>
@@ -1272,7 +1272,7 @@ by the scroll reveal <code>IntersectionObserver</code>.</p>
 </tr>
 <tr>
 <td>Controls</td>
-<td>Dot buttons — clicking a dot pauses the timer and jumps to that item</td>
+<td>Dot buttons. Clicking a dot pauses the timer and jumps to that item</td>
 </tr>
 </tbody>
 </table>
@@ -1376,7 +1376,7 @@ pieces and navigation destinations.</p>
 </tr>
 <tr>
 <td>Items</td>
-<td>Six — audit booking, health check, four portfolio pieces, email</td>
+<td>Six: audit booking, health check, four portfolio pieces, email</td>
 </tr>
 <tr>
 <td>Filter</td>
@@ -1433,7 +1433,7 @@ default browser scroll with a custom eased animation.</p>
 </tr>
 <tr>
 <td>Easing</td>
-<td>Quartic ease-out — <code>1 - Math.pow(1 - progress, 4)</code></td>
+<td>Quartic ease-out: <code>1 - Math.pow(1 - progress, 4)</code></td>
 </tr>
 </tbody>
 </table>
@@ -1453,11 +1453,11 @@ default browser scroll with a custom eased animation.</p>
 </tr>
 <tr>
 <td>Active class</td>
-<td><code>active</code> — toggled on both the selected button and its panel</td>
+<td><code>active</code>, toggled on both the selected button and its panel</td>
 </tr>
 <tr>
 <td>Transition</td>
-<td>Controlled by CSS on <code>.sample-panel</code> — panels without <code>active</code> are hidden</td>
+<td>Controlled by CSS on <code>.sample-panel</code>. Panels without <code>active</code> are hidden</td>
 </tr>
 <tr>
 <td>Default active</td>
@@ -1484,7 +1484,7 @@ default browser scroll with a custom eased animation.</p>
 </code></pre></div></p>
 </li>
 <li>
-<p>Do not add <code>active</code> to the new button or panel — the default active
+<p>Do not add <code>active</code> to the new button or panel. The default active
    state is set in HTML on the first tab only. The switcher handles
    everything else.</p>
 </li>
@@ -1496,7 +1496,7 @@ default browser scroll with a custom eased animation.</p>
 <ol>
 <li>Write the interaction as a self-contained function in the <code>&lt;script&gt;</code>
    block before <code>&lt;/body&gt;</code> in <code>index.html</code></li>
-<li>Do not import external libraries — keep all interactions in vanilla JS</li>
+<li>Do not import external libraries. Keep all interactions in vanilla JS</li>
 <li>Use <code>IntersectionObserver</code> for any animation that should pause when
    out of view</li>
 <li>Add a row to the relevant table in this document describing the new
