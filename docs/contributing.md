@@ -47,6 +47,14 @@ incorrect: navHeader, PostHeroInner, blogFooterText
 - Global styles that apply across all pages → `styles.css`
 - Page-specific styles that apply to one page only → `<style>` tag inside that page's `<head>`
 
+## Writing style
+
+These rules apply to every page in these docs.
+
+- **Spelling:** Use British spelling, for example "organise", "colour" and "behaviour".
+- **Contractions:** Do not use contractions. Write "do not", not "don't".
+- **Em dashes:** Do not use em dashes. Use a comma, a colon or a full stop instead.
+
 ## Reporting bugs and suggestions
 
 If you find a bug or want to suggest an improvement, raise a GitHub Issue on the repository:
