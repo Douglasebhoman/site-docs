@@ -13,6 +13,7 @@ Every push or merge to `main` in `Douglasebhoman/douglasebhoman.github.io` runs 
 | Checkout | Checks out the commit that was pushed |
 | Setup Node | Installs Node 22 and restores the npm cache |
 | Install dependencies | `npm ci` installs the exact versions in `package-lock.json` |
+| Drift check | `bash scripts/drift-check.sh` fails the build if any source page contains a retired claim |
 | Build with Eleventy | `npx @11ty/eleventy` builds the site into `_site/` |
 | Upload Pages artifact | Packages `_site/` as the deployment artefact |
 | Deploy to GitHub Pages | Publishes the artefact to the `github-pages` environment |
@@ -57,6 +58,7 @@ The workflow usually finishes in under a minute: the build job, then the deploy 
 | Symptom | Likely cause | Fix |
 | --- | --- | --- |
 | `build` job fails at **Install dependencies** | `package-lock.json` is missing or does not match `package.json` | Run `npm install` locally, commit the updated lockfile, and push |
+| `build` job fails at **Drift check** | A page contains a retired claim | Run `bash scripts/drift-check.sh` locally, correct the page, and push |
 | `build` job fails at **Build with Eleventy** | Template or front matter error | Run `npm run build` locally. Eleventy names the file and line. Fix it and push |
 | `deploy` job fails or waits | Pages source is not **GitHub Actions**, or the `github-pages` environment blocks the branch | Check **Settings → Pages** and **Settings → Environments → github-pages** |
 | Run is green but the page has not changed | Browser or CDN cache | Open the page in a private window or hard refresh. Wait two minutes and retry |
