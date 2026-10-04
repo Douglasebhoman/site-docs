@@ -115,8 +115,7 @@ git push origin content/part-NN
 
 `draft: true` removes a post from the posts collections. The post then does not appear on the blog index, the work page, the series navigation or the sitemap.
 
-!!! warning "A draft is still published at its own URL"
-    The flag hides a post from every listing, but Eleventy still builds the page, and it is deployed. Anyone who has the URL can read it. To keep a post fully private until launch, do not merge it into `main`.
+Draft posts are excluded from production builds entirely. They render only under `npm start`. Remove `draft: true` to publish.
 
 ---
 
