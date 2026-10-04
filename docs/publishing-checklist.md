@@ -84,4 +84,4 @@ Buttons do not show a price. The price appears on the price blocks, in statistic
 ## Change the site documentation
 
 - [ ] Follow [Maintaining These Docs](maintaining-these-docs.md).
-- [ ] If the navigation changed, retake the banner screenshot used on the work page and homepage cards.
+- [ ] If the docs header, sidebar or the top of the Deployment page changed, retake the screenshot used on the Site Documentation card on the homepage and work page. Follow [Site documentation card screenshot](https://github.com/Douglasebhoman/douglasebhoman.github.io/blob/main/scripts/og/README.md#site-documentation-card-screenshot) in the website repository.
