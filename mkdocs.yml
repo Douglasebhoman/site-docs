@@ -48,6 +48,11 @@ nav:
 extra_css:
   - stylesheets/brand.css
 
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: date
+
 extra:
   social:
     - icon: fontawesome/solid/house
