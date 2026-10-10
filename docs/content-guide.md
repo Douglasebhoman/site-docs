@@ -114,7 +114,7 @@ git push origin content/part-NN
 
 `draft: true` removes a post from the posts collections. The post then does not appear on the blog index, the work page, the series navigation or the sitemap.
 
-Draft posts are excluded from production builds entirely. They render only under `npm start`. Remove `draft: true` to publish.
+Draft posts are excluded from production builds entirely. They render only under `npm start`. Remove `draft: true` to publish. Eleventy does not clear `_site/` between builds, so a page that was drafted, deleted or renamed after being published can survive in your local `_site/` and look live when it is not.
 
 ---
 
