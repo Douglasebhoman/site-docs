@@ -980,11 +980,15 @@
 
 <h1 id="javascript">JavaScript</h1>
 <p>All JavaScript on this site is vanilla: no frameworks, no external
-libraries. Every interaction lives in a <code>&lt;script&gt;</code> block before <code>&lt;/body&gt;</code>
-on the page it belongs to. There are no shared JS files.</p>
+libraries. There are no separate <code>.js</code> files. Most interactions live in a
+<code>&lt;script&gt;</code> block before <code>&lt;/body&gt;</code> on the page they belong to. The
+documentation health check is the exception: it is rendered from
+<code>_includes/partials/health-check.njk</code>, which both the homepage and the
+audit page include.</p>
 <h2 id="homepage-interactions">Homepage interactions</h2>
-<p>The homepage (<code>index.html</code>) contains all of the site's JavaScript. The
-interactions are listed below in the order they appear in the script block.</p>
+<p>The interactions below live in the script block in <code>index.html</code>, listed in
+the order they appear, except the documentation health check, which comes
+from the shared include.</p>
 <h3 id="particle-network">Particle network</h3>
 <p>Renders an animated gold particle field on the hero section using the
 HTML5 Canvas API.</p>
@@ -1277,8 +1281,13 @@ by the scroll reveal <code>IntersectionObserver</code>.</p>
 </tbody>
 </table>
 <h3 id="documentation-health-check-widget">Documentation health check widget</h3>
-<p>The most complex component on the homepage. A six-question scoring engine
+<p>The most complex component on the site. A six-question scoring engine
 that produces a personalised health report.</p>
+<p>The widget's markup and script live in <code>_includes/partials/health-check.njk</code>.
+The homepage and the audit page both include it, so they score identically.
+The include takes one parameter, <code>bookingBlock</code>. The audit page sets it to
+<code>true</code>: a booking block appears after the result, and the widget's own
+<strong>Book the audit</strong> button is left out. The homepage sets it to <code>false</code>.</p>
 <p><strong>States:</strong></p>
 <table>
 <thead>
@@ -1522,7 +1531,7 @@ default browser scroll with a custom eased animation.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 4, 2026 10:19:25 UTC">October 4, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 10, 2026 22:57:02 UTC">October 10, 2026</span>
   </span>
 
     
