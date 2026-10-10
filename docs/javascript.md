@@ -1,13 +1,17 @@
 # JavaScript
 
 All JavaScript on this site is vanilla: no frameworks, no external
-libraries. Every interaction lives in a `<script>` block before `</body>`
-on the page it belongs to. There are no shared JS files.
+libraries. There are no separate `.js` files. Most interactions live in a
+`<script>` block before `</body>` on the page they belong to. The
+documentation health check is the exception: it is rendered from
+`_includes/partials/health-check.njk`, which both the homepage and the
+audit page include.
 
 ## Homepage interactions
 
-The homepage (`index.html`) contains all of the site's JavaScript. The
-interactions are listed below in the order they appear in the script block.
+The interactions below live in the script block in `index.html`, listed in
+the order they appear, except the documentation health check, which comes
+from the shared include.
 
 ### Particle network
 
@@ -134,8 +138,14 @@ Rotates three items in the hero side panel automatically.
 
 ### Documentation health check widget
 
-The most complex component on the homepage. A six-question scoring engine
+The most complex component on the site. A six-question scoring engine
 that produces a personalised health report.
+
+The widget's markup and script live in `_includes/partials/health-check.njk`.
+The homepage and the audit page both include it, so they score identically.
+The include takes one parameter, `bookingBlock`. The audit page sets it to
+`true`: a booking block appears after the result, and the widget's own
+**Book the audit** button is left out. The homepage sets it to `false`.
 
 **States:**
 
