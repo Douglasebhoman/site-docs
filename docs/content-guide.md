@@ -79,7 +79,6 @@ Optional fields:
 | `bannerImage` | Replaces `cardImage` in the banner |
 | `pageTitle`, `ogTitle` | Override the page title and the Open Graph title |
 | `jsonLd` | Adds structured data |
-| `extraCss` | Loads extra styles. Values: `posts01to04`, `posts06to07` |
 | `newsletter*` | Adjust the newsletter block |
 
 Older posts still carry `partNav`, `relatedPrev`, `relatedNext` and `nextDisabledLabel`. Nothing reads these fields. Do not add them to new posts.
