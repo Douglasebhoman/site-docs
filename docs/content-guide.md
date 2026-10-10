@@ -79,7 +79,6 @@ Optional fields:
 | `bannerImage` | Replaces `cardImage` in the banner |
 | `pageTitle`, `ogTitle` | Override the page title and the Open Graph title |
 | `jsonLd` | Adds structured data |
-| `extraCss` | Loads extra styles. Values: `posts01to04`, `posts06to07` |
 | `newsletter*` | Adjust the newsletter block |
 
 Older posts still carry `partNav`, `relatedPrev`, `relatedNext` and `nextDisabledLabel`. Nothing reads these fields. Do not add them to new posts.
@@ -115,7 +114,7 @@ git push origin content/part-NN
 
 `draft: true` removes a post from the posts collections. The post then does not appear on the blog index, the work page, the series navigation or the sitemap.
 
-Draft posts are excluded from production builds entirely. They render only under `npm start`. Remove `draft: true` to publish.
+Draft posts are excluded from production builds entirely. They render only under `npm start`. Remove `draft: true` to publish. Eleventy does not clear `_site/` between builds, so a page that was drafted, deleted or renamed after being published can survive in your local `_site/` and look live when it is not.
 
 ---
 

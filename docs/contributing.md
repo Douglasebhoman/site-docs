@@ -57,8 +57,8 @@ These rules apply to every page in these docs.
 
 ## Reporting bugs and suggestions
 
-If you find a bug or want to suggest an improvement, raise a GitHub Issue on the repository:
+If you find a bug or want to suggest an improvement, raise a GitHub Issue on the documentation repository:
 
-[github.com/Douglasebhoman/douglasebhoman.github.io/issues](https://github.com/Douglasebhoman/douglasebhoman.github.io/issues)
+[github.com/Douglasebhoman/site-docs/issues](https://github.com/Douglasebhoman/site-docs/issues)
 
 Describe the problem or suggestion clearly. Include the page affected, what you expected to happen, and what actually happened.

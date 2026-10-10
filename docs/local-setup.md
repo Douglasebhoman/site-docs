@@ -77,4 +77,4 @@ The script fails if a page contains a claim that no longer matches the verifiabl
 
 - The MailerLite newsletter form and Giscus comments load from external domains and need an internet connection.
 - The documentation health check widget runs entirely in the browser and works offline.
-- Draft posts are excluded from production builds entirely. They render only under `npm start`. Remove `draft: true` to publish. See [Content Guide](content-guide.md#drafts).
+- Draft posts are excluded from production builds entirely. They render only under `npm start`. Remove `draft: true` to publish. Eleventy does not clear `_site/` between builds, so a page that was drafted, deleted or renamed after being published can survive in your local `_site/` and look live when it is not. See [Content Guide](content-guide.md#drafts).

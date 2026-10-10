@@ -20,11 +20,14 @@ The docs are a GitHub Pages project site. Because the user site (`douglasebhoman
 
 | Tool | Version | Check with |
 | --- | --- | --- |
-| Python | 3.12 (matches the workflow) | `python --version` |
+| Python | 3.12 or later (the workflow uses 3.12) | `python --version` |
 | pip | Bundled with Python 3.12 | `pip --version` |
-| Git | Tested with 2.52.0 | `git --version` |
-| MkDocs | 1.6.1 (installed from `requirements.txt`) | `mkdocs --version` |
-| Material for MkDocs | 9.7.6 (installed from `requirements.txt`) | `pip show mkdocs-material` |
+| Git | 2.52.0 or later (the version tested) | `git --version` |
+| MkDocs | Pinned in `requirements.txt` | `mkdocs --version` |
+| Material for MkDocs | Pinned in `requirements.txt` | `pip show mkdocs-material` |
+| git-revision-date-localized plugin | Pinned in `requirements.txt` | `pip show mkdocs-git-revision-date-localized-plugin` |
+
+`requirements.txt` holds the exact versions of MkDocs, Material for MkDocs and the plugin. Step 3 of the install installs all three, and the deploy workflow installs from the same file.
 
 ## Install
 
@@ -63,7 +66,7 @@ The docs are a GitHub Pages project site. Because the user site (`douglasebhoman
     mkdocs --version
     ```
 
-    The output starts with `mkdocs, version 1.6.1`.
+    The command prints the installed MkDocs version. It should match the version pinned in `requirements.txt`.
 
 The repository's `.gitignore` already excludes `.venv/`.
 
