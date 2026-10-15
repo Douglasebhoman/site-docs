@@ -64,7 +64,8 @@ The workflow usually finishes in under a minute: the build job, then the deploy 
 | Run is green but the page has not changed | Browser or CDN cache | Open the page in a private window or hard refresh. Wait two minutes and retry |
 | Blog posts appear unstyled, with no navigation | Pages is serving the raw repository instead of the build | Set the Pages source to **GitHub Actions** and re-run the workflow |
 | New post is missing from the blog index and sitemap | The post has no `part` value, or is marked `draft: true` | Fix the front matter. See [Content Guide](content-guide.md) |
-| Sitemap shows a wrong or empty date for a post | `publishDate` is not in the form `September 25, 2026` | Correct the format in the post's front matter |
+| `build` job fails at **Build with Eleventy**, naming `isoDate` or `publishDate` | A post's `publishDate` is missing or not in the form `September 25, 2026` | Correct the date in the post's front matter. See [Content Guide](content-guide.md#required-fields) |
+| `build` job fails at **Build with Eleventy**, naming `jsonString` | A post is missing `title`, `description` or `canonicalUrl`, or one of these, a keyword or a citation contains an HTML entity such as `&rsquo;` | Add the field, or type the character itself. See [Content Guide](content-guide.md#required-fields) |
 | Whole site returns 404 or shows `douglasebhoman.github.io` | `CNAME` file deleted, edited, or no longer copied by the build | Restore `CNAME` containing only `douglasebhoman.com`, and confirm `eleventy.config.js` still copies it |
 | Browser shows a certificate warning | Cloudflare proxy switched on, or certificate not yet issued | Set the Cloudflare record to **DNS only**. Under **Settings → Pages**, wait for the certificate, then tick **Enforce HTTPS** |
 | Newsletter form or comments missing | Third-party script blocked or offline | Check the browser console. MailerLite and Giscus load from external domains |

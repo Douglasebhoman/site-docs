@@ -32,56 +32,77 @@ Folder naming rules:
 
 ### 2. Write the front matter
 
+This is Part 9's front matter, copied from `blog/posts/information-architecture-in-documentation/index.html`. Every field in it is read by the build.
+
 ```yaml
 ---
 layout: layouts/post.html
-part: 9
-title: "Your Post Title"
-description: "Meta description."
-ogDescription: "Open Graph description."
-twitterDescription: "Twitter description."
+title: "Your Documentation Is a Series. Your Reader Skipped Part 1."
+description: "A series has an order, but readers rarely follow it. Part 9 of Systems Over Sentences, on information architecture as a decision about relationships."
+ogDescription: "A series has an order, but readers rarely follow it. Part 9 of Systems Over Sentences, on information architecture as a decision about relationships."
+twitterDescription: "A series has an order. Readers rarely follow it."
 ogImage: "https://douglasebhoman.com/assets/images/information-architecture-in-documentation.png"
 canonicalUrl: "https://douglasebhoman.com/blog/posts/information-architecture-in-documentation/"
-seriesTag: "Systems Over Sentences &middot; Part 09 of 10"
-postSubtitle: "The subtitle shown in the hero."
 publishDate: "September 25, 2026"
-readTime: "8 min read"
-cardImage: "information-architecture-in-documentation.png"
+readTime: "7 min read"
+pageTitle: "Information Architecture in Documentation: Your Reader Skipped Part 1"
+keywords: ["information architecture", "technical writing", "documentation structure", "learning paths", "documentation design", "structured writing"]
+part: 9
 cardDate: "September 2026"
-cardExcerpt: "The excerpt shown on cards."
-pullQuote: "The pull quote shown on the featured card."
+cardImage: "information-architecture-in-documentation.png"
+banner: true
+cardExcerpt: "This series was replanned mid-flight, because a page already published would not allow the original order. Architecture is a decision about relationships."
+pullQuote: "A page should be able to stand on its own without losing its place in the larger story."
 ---
 ```
 
-Required fields:
+#### Required fields
 
-| Field | Meaning |
+Every post needs all of these. Without one of the first five, the build fails or the page loses its layout. Without one of the others, the build still succeeds, but part of the page or of the blog listings is empty or broken.
+
+| Field | Read by | Without it |
+| --- | --- | --- |
+| `layout` | Eleventy. Always `layouts/post.html` | The post is published as its bare body, with no head, navigation or styles |
+| `title` | The hero, the Twitter title, the structured data, and the cards on the blog index and the work page | The build fails |
+| `description` | The meta description and the structured data. Also the Twitter description, unless `twitterDescription` is set | The build fails |
+| `canonicalUrl` | The canonical link, `og:url`, the structured data and the sitemap | The build fails |
+| `publishDate` | The hero, the structured data and the sitemap. Must be in the form `September 25, 2026` | The build fails. A date in any other form also fails the build |
+| `part` | The series number. It sets the order on the blog index, the series tag, the title suffix and the previous and next links | The post is left out of the blog index, the work page and the sitemap, and has no series tag |
+| `ogDescription` | `og:description` | The Open Graph description is empty |
+| `ogImage` | `og:image` and `twitter:image`. An absolute URL | Both share image tags are empty |
+| `readTime` | The hero and the featured post on the blog index | The read time is blank |
+| `cardImage` | A file name in `assets/images/`. The image on the blog index and work page cards, and the banner | The card images are broken |
+| `cardDate` | The card date on the blog index, in the form `September 2026` | The card date is blank |
+| `cardExcerpt` | The card excerpt on the blog index | The excerpt is blank |
+| `pullQuote` | The featured post on the blog index, and the "Continue the series" cards on the neighbouring posts | The quotation marks show with nothing between them |
+
+Structured data cannot contain HTML entities such as `&rsquo;`, because a browser does not decode them inside a script. A `title`, `description`, keyword or citation that contains one fails the build. Type the character itself.
+
+#### Fields with a default
+
+`blog/posts/posts.json` sets these for every post in `blog/posts/`. A post may override either one in its own front matter.
+
+| Field | Default in `posts.json` | Read by |
+| --- | --- | --- |
+| `postSubtitle` | The author line | The hero subtitle. It may contain HTML |
+| `series` | The series `name`, its `total` number of parts, and the blog `url` | The series tag, for example "Systems Over Sentences · Part 09 of 10", the title suffix, the part navigation label and the structured data. A post that overrides only `series.name` keeps the default `total` and `url` |
+
+#### Optional fields
+
+| Field | Effect |
 | --- | --- |
-| `layout` | Always `layouts/post.html` |
-| `part` | Series number. A post without it is left out of every listing. It sets the order and the previous and next links |
-| `title` | Post heading, card title and image alt text |
-| `description`, `ogDescription`, `twitterDescription` | Meta, Open Graph and Twitter descriptions |
-| `ogImage` | Absolute URL of the share image |
-| `canonicalUrl` | Canonical link. Also used as the post's sitemap location |
-| `seriesTag` | Hero label, for example `Systems Over Sentences &middot; Part 09 of 10` |
-| `postSubtitle` | Hero subtitle. May contain HTML |
-| `publishDate` | Displayed date. Must be in the form `September 25, 2026`, because the sitemap parses it |
-| `readTime` | Displayed read time |
-| `cardImage` | File name in `assets/images/`, used on cards and as the default banner |
-| `cardDate`, `cardExcerpt`, `pullQuote` | Card date in the form `September 2026`, card excerpt and pull quote |
-
-Optional fields:
-
-| Field | Meaning |
-| --- | --- |
+| `pageTitle` | The title for search results. For the browser title and `og:title`, the build adds a vertical bar, the series name and the part number after it. Without it, the browser title is the post's `title` followed by "· Douglas Ebhoman", with no series name or part number |
+| `ogTitle` | Replaces the assembled page title in `og:title` |
+| `twitterDescription` | Replaces `description` in `twitter:description` |
+| `banner` | `true` shows `cardImage` as a banner above the hero, and hides the visible post title, which stays available to screen readers |
+| `bannerImage` | Shows this file in the banner instead of `cardImage` |
+| `keywords` | A list of strings, added to the structured data |
+| `citation` | A string, or a list of strings, added to the structured data |
 | `draft` | See [Drafts](#drafts) |
-| `banner` | Shows the hero banner |
-| `bannerImage` | Replaces `cardImage` in the banner |
-| `pageTitle`, `ogTitle` | Override the page title and the Open Graph title |
-| `jsonLd` | Adds structured data |
-| `newsletter*` | Adjust the newsletter block |
-
-Older posts still carry `partNav`, `relatedPrev`, `relatedNext` and `nextDisabledLabel`. Nothing reads these fields. Do not add them to new posts.
+| `newsletterShowLabel` | `true` shows the "Stay current" label above the newsletter block |
+| `newsletterTitleTag` | The HTML tag for the newsletter heading. Without it, the heading is a `p` |
+| `newsletterBtnClass` | The class of the newsletter block's booking button. Without it, the class is `btn-ghost-light` |
+| `newsletterNoTarget` | `true` opens the booking link in the same tab |
 
 ### 3. Write the body
 
