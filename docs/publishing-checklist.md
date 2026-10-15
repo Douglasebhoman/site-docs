@@ -18,8 +18,8 @@ Manual steps:
 - [ ] Create `blog/posts/your-post-slug/index.html` with the front matter in [Content Guide: Adding a blog post](content-guide.md#adding-a-blog-post).
 - [ ] Add the card image named in `cardImage` to `assets/images/`. A missing image does not fail the build. It shows as a broken image on every card.
 - [ ] Add the share image named in `ogImage`, if it is a new file.
-- [ ] Set `publishDate` in the form `September 25, 2026`. The sitemap parses this exact format.
-- [ ] Set `seriesTag`, for example `Systems Over Sentences &middot; Part 09 of 10`.
+- [ ] Set `publishDate` in the form `September 25, 2026`. A date in any other form fails the build.
+- [ ] Set `part` to the post's number in the series. The series tag, the title suffix and the previous and next links come from it.
 - [ ] Raise the published essay count in `index.html` by one: the hero stat "Published essays" and the "Published essays on documentation systems" metric card. Both are `data-count` values written by hand.
 - [ ] Check `blog/index.html` for any hand-written "Coming next" card that names this post, and remove or update it.
 - [ ] Check `index.html` for any carousel item or card that names a specific part.
