@@ -40,13 +40,13 @@ title: "Your Post Title"
 description: "Meta description."
 ogDescription: "Open Graph description."
 twitterDescription: "Twitter description."
-ogImage: "https://douglasebhoman.com/assets/images/your-post-slug-cover.png"
-canonicalUrl: "https://douglasebhoman.com/blog/posts/your-post-slug/"
+ogImage: "https://douglasebhoman.com/assets/images/information-architecture-in-documentation.png"
+canonicalUrl: "https://douglasebhoman.com/blog/posts/information-architecture-in-documentation/"
 seriesTag: "Systems Over Sentences &middot; Part 09 of 10"
 postSubtitle: "The subtitle shown in the hero."
 publishDate: "September 25, 2026"
 readTime: "8 min read"
-cardImage: "your-post-slug-cover.png"
+cardImage: "information-architecture-in-documentation.png"
 cardDate: "September 2026"
 cardExcerpt: "The excerpt shown on cards."
 pullQuote: "The pull quote shown on the featured card."
@@ -88,6 +88,10 @@ Older posts still carry `partNav`, `relatedPrev`, `relatedNext` and `nextDisable
 Below the front matter, write the post body as HTML. Start at the first paragraph or heading of the article. Do not include `<html>`, `<head>`, navigation or footer.
 
 ### 4. Add the images
+
+All images live in `assets/images/`, which the blog shares with the rest of the site.
+
+Name the banner with the post's slug exactly, with no suffix. Give it the extension that matches the file's real format: `.png` for a PNG, and `.jpg` or `.jpeg` for a JPEG. For example, Part 9's slug is `information-architecture-in-documentation`, and its banner is a PNG, so the file is `information-architecture-in-documentation.png`. Part 7's banner is a JPEG, so the file is `the-discipline-of-research.jpg`.
 
 Place the file named in `cardImage` in `assets/images/`. If `ogImage` points to a different file, add that too. A missing image does not fail the build.
 
