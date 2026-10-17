@@ -39,7 +39,6 @@ This is Part 9's front matter, copied from `blog/posts/information-architecture-
 layout: layouts/post.html
 title: "Your Documentation Is a Series. Your Reader Skipped Part 1."
 description: "A series has an order, but readers rarely follow it. Part 9 of Systems Over Sentences, on information architecture as a decision about relationships."
-ogDescription: "A series has an order, but readers rarely follow it. Part 9 of Systems Over Sentences, on information architecture as a decision about relationships."
 twitterDescription: "A series has an order. Readers rarely follow it."
 ogImage: "https://douglasebhoman.com/assets/images/information-architecture-in-documentation.png"
 canonicalUrl: "https://douglasebhoman.com/blog/posts/information-architecture-in-documentation/"
@@ -63,12 +62,11 @@ Every post needs all of these. Without one of the first five, the build fails or
 | Field | Read by | Without it |
 | --- | --- | --- |
 | `layout` | Eleventy. Always `layouts/post.html` | The post is published as its bare body, with no head, navigation or styles |
-| `title` | The hero, the Twitter title, the structured data, and the cards on the blog index and the work page | The build fails |
-| `description` | The meta description and the structured data. Also the Twitter description, unless `twitterDescription` is set | The build fails |
+| `title` | The hero, the Twitter title, the structured data, and the cards on the blog index and the work page. Also the browser title and `og:title`, unless `pageTitle` is set | The build fails |
+| `description` | The meta description and the structured data. Also the Open Graph and Twitter descriptions, unless `ogDescription` or `twitterDescription` is set | The build fails |
 | `canonicalUrl` | The canonical link, `og:url`, the structured data and the sitemap | The build fails |
 | `publishDate` | The hero, the structured data and the sitemap. Must be in the form `September 25, 2026` | The build fails. A date in any other form also fails the build |
 | `part` | The series number. It sets the order on the blog index, the series tag, the title suffix and the previous and next links | The post is left out of the blog index, the work page and the sitemap, and has no series tag |
-| `ogDescription` | `og:description` | The Open Graph description is empty |
 | `ogImage` | `og:image` and `twitter:image`. An absolute URL | Both share image tags are empty |
 | `readTime` | The hero and the featured post on the blog index | The read time is blank |
 | `cardImage` | A file name in `assets/images/`. The image on the blog index and work page cards, and the banner | The card images are broken |
@@ -85,14 +83,15 @@ Structured data cannot contain HTML entities such as `&rsquo;`, because a browse
 | Field | Default in `posts.json` | Read by |
 | --- | --- | --- |
 | `postSubtitle` | The author line | The hero subtitle. It may contain HTML |
-| `series` | The series `name`, its `total` number of parts, and the blog `url` | The series tag, for example "Systems Over Sentences · Part 09 of 10", the title suffix, the part navigation label and the structured data. A post that overrides only `series.name` keeps the default `total` and `url` |
+| `series` | The series `name`, its `total` number of parts, and the blog `url` | The series tag, for example "Systems Over Sentences · Part 09 of 10", the title suffix, the part navigation label and the structured data. A post that overrides only `series.name` keeps the default `total` and `url`. The Eleventy configuration also reads `series` from `posts.json` for every other page, so the blog index and the work page show the same name |
 
 #### Optional fields
 
 | Field | Effect |
 | --- | --- |
-| `pageTitle` | The title for search results. For the browser title and `og:title`, the build adds a vertical bar, the series name and the part number after it. Without it, the browser title is the post's `title` followed by "· Douglas Ebhoman", with no series name or part number |
+| `pageTitle` | The title for search results. For the browser title and `og:title`, the build adds a vertical bar, the series name and the part number after it. Without it, the build adds the same suffix to the post's `title` instead |
 | `ogTitle` | Replaces the assembled page title in `og:title` |
+| `ogDescription` | Replaces `description` in `og:description` |
 | `twitterDescription` | Replaces `description` in `twitter:description` |
 | `banner` | `true` shows `cardImage` as a banner above the hero, and hides the visible post title, which stays available to screen readers |
 | `bannerImage` | Shows this file in the banner instead of `cardImage` |
