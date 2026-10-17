@@ -32,28 +32,7 @@ Folder naming rules:
 
 ### 2. Write the front matter
 
-This is Part 9's front matter, copied from `blog/posts/information-architecture-in-documentation/index.html`. Every field in it is read by the build.
-
-```yaml
----
-layout: layouts/post.html
-title: "Your Documentation Is a Series. Your Reader Skipped Part 1."
-description: "A series has an order, but readers rarely follow it. Part 9 of Systems Over Sentences, on information architecture as a decision about relationships."
-twitterDescription: "A series has an order. Readers rarely follow it."
-ogImage: "https://douglasebhoman.com/assets/images/information-architecture-in-documentation.png"
-canonicalUrl: "https://douglasebhoman.com/blog/posts/information-architecture-in-documentation/"
-publishDate: "September 25, 2026"
-readTime: "7 min read"
-pageTitle: "Information Architecture in Documentation: Your Reader Skipped Part 1"
-keywords: ["information architecture", "technical writing", "documentation structure", "learning paths", "documentation design", "structured writing"]
-part: 9
-cardDate: "September 2026"
-cardImage: "information-architecture-in-documentation.png"
-banner: true
-cardExcerpt: "This series was replanned mid-flight, because a page already published would not allow the original order. Architecture is a decision about relationships."
-pullQuote: "A page should be able to stand on its own without losing its place in the larger story."
----
-```
+The working example is Part 9. Its source file in the website repository is `blog/posts/information-architecture-in-documentation/index.html`. Read its front matter alongside the tables below.
 
 #### Required fields
 
@@ -91,7 +70,7 @@ Structured data cannot contain HTML entities such as `&rsquo;`, because a browse
 | --- | --- |
 | `pageTitle` | The title for search results. For the browser title and `og:title`, the build adds a vertical bar, the series name and the part number after it. Without it, the build adds the same suffix to the post's `title` instead |
 | `ogTitle` | Replaces the assembled page title in `og:title` |
-| `ogDescription` | Replaces `description` in `og:description` |
+| `ogDescription` | The Open Graph description. Without it, `og:description` uses `description` |
 | `twitterDescription` | Replaces `description` in `twitter:description` |
 | `banner` | `true` shows `cardImage` as a banner above the hero, and hides the visible post title, which stays available to screen readers |
 | `bannerImage` | Shows this file in the banner instead of `cardImage` |
